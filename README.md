@@ -13,7 +13,7 @@ $> make all
 ## Studing usage for gettext utility.
 
 This program print a message to console simply. If you run it with 
-`-l ja_JP -c UTF-8` option, you will have japanese translated message. But
+`-l ja_JP -c UTF-8` option, you will have Japanese translated message. But
  if you run with either following options, you will not have japanese translated message. I wonder about gettext library not working with some options. 
 
 * `-l ja`
@@ -74,8 +74,7 @@ $> bin/i18n-msg -l ja_JP
 gettext????????????
 ```
 
-I had a mmessage file with UTF-8 and my evnvironment LC_CTYPE is 'en.UTF-8'.
+I had message files with UTF-8 and my evnvironment LC_CTYPE is 'en.UTF-8'.
 You could understand by reading man 7 locale that LC_CTYPE is used to display
 string.
-
 
