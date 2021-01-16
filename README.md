@@ -74,7 +74,7 @@ $> bin/i18n-msg -l ja_JP
 gettext????????????
 ```
 
-I had message files with UTF-8 and my evnvironment LC_CTYPE is 'en.UTF-8'.
+I had message files with UTF-8 and my environment LC_CTYPE is 'en.UTF-8'.
 You could understand by reading man 7 locale that LC_CTYPE is used to display
 string.
 
