@@ -1,0 +1,22 @@
+# i18n test translation.
+# Copyright (C) Toshiyuki ogawa
+# This file is distributed under the same license as the i18n-t-0 package.
+# Toshiyuki Ogawa<toshi@oc-soft.net>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-13 22:06+0900\n"
+"PO-Revision-Date: 2020-01-13 22:06+0900\n"
+"Last-Translator: Toshiyuki Ogawa<toshi@oc-soft.net>\n"
+"Language-Team: English translator<info@oc-soft.net>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: main.c:47
+msgid "I am using gettext library."
+msgstr "I am using gettext library for translation to en_US."
