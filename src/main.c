@@ -506,24 +506,25 @@ i18n_set_locale(
         exec_dir = get_executable_dir();
         if (exec_dir) {
             size_t exec_dir_len;
-            size_t locale_len;
+            size_t locales_dir_len;
             size_t loc_path_buffer_size;
+            const char* locales_dir = "locales";
             char* loc_path_buffer;
             char* saved_loc_path;
-            locale_len = strlen(locale);
+            locales_dir_len = strlen(locales_dir);
             exec_dir_len  = strlen(exec_dir);
             loc_path_buffer_size = exec_dir_len;
-            loc_path_buffer_size += locale_len;
+            loc_path_buffer_size += locales_dir_len;
             loc_path_buffer_size += 1;
             loc_path_buffer = (char*)malloc(loc_path_buffer_size);
             saved_loc_path = getenv("LOCPATH");
             if (loc_path_buffer) {
                 snprintf(loc_path_buffer, loc_path_buffer_size,
-                   "%s%s", exec_dir, locale);    
+                   "%s%s", exec_dir, locales_dir);    
                 setenv("LOCPATH", loc_path_buffer, 1);
             }
             locale_res = setlocale(LC_MESSAGES, locale); 
-            
+            result = locale_res ? 0 : -1; 
             if (saved_loc_path) {
                 setenv("LOC_PATH", saved_loc_path, 1);
             } 
