@@ -6,6 +6,7 @@ MKDIR_P = mkdir -p
 CFLAGS= -g
 RM=rm -f
 RM_R=rm -f -r
+LOCALEDEF=localedef
 
 i18n_msg_OBJECTS = $(topbuild_dir)main.o 
 
@@ -15,7 +16,8 @@ i18n_msg_MOFILES = $(topbuild_dir)i18n/ja/LC_MESSAGES/messages.mo \
 	$(topbuild_dir)i18n/en_US/LC_MESSAGES/messages.mo
 
 
-all: $(topbuild_dir)i18n-msg $(i18n_msg_MOFILES)
+all: $(topbuild_dir)i18n-msg $(i18n_msg_MOFILES) gen-locales
+
 
 $(topbuild_dir)i18n-msg: $(i18n_msg_OBJECTS)
 	$(LINK) -o $@ $^ $(LDFLAGS)
@@ -29,6 +31,9 @@ $(topbuild_dir)i18n/ja/LC_MESSAGES/messages.mo: \
 $(topbuild_dir)i18n/ja.UTF-8/LC_MESSAGES/messages.mo: \
 	i18n/ja.UTF-8/LC_MESSAGES/messages.po
 
+gen-locales:
+	$(MKDIR_P) $(topbuild_dir)locales;
+	$(LOCALEDEF) -i ja_JP  -f UTF-8 $(topbuild_dir)locales/ja
 
 $(topbuild_dir)%.mo : %.po
 	$(MKDIR_P) $(@D);
@@ -46,9 +51,13 @@ clean-i18n-objects:
 clean-i18n:
 	$(RM) $(topbuild_dir)i18n-msg
 
-clean: clean-i18n-objects clean-i18n clean-i18n-msg-objects
+
+clean-locales:
+	$(RM_R) $(topbuild_dir)locales
+
+clean: clean-i18n-objects clean-i18n clean-i18n-msg-objects clean-locales
 
 
-.PHONY: clean clean-i18n clean-i18n-objects 
+.PHONY: clean clean-i18n clean-i18n-objects gen-locales
 
 # vi: se ts=4 sw=4 noet:
