@@ -526,7 +526,7 @@ i18n_set_locale(
             locale_res = setlocale(LC_MESSAGES, locale); 
             result = locale_res ? 0 : -1; 
             if (saved_loc_path) {
-                setenv("LOC_PATH", saved_loc_path, 1);
+                setenv("LOCPATH", saved_loc_path, 1);
             } 
 
             if (saved_loc_path) {
